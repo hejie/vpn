@@ -1,26 +1,30 @@
-# vpn
-aws vpn
+[TOC]
 
-#安装
-apt-get update
-#
-apt-get install python-pip
-#
-pip install --upgrade pip
-#
-pip install shadowsocks
-#
-apt-get install shadowsocks-libev
-#
-vim /etc/shadowsocks.json
-{
+#### Ubuntu 安装
+
+- sudo apt update ;
+- sudo apt install shadowsocks-libev;
+
+#### docker 安装
+    
+			 docker pull shadowsocks/shadowsocks-libev
+			 docker run -e PASSWORD=<password> -p<server-port>:8388 -p<server-port>:8388/udp -d
+			 shadowsocks/shadowsocks-libev
+
+           
+
+#### 配置
+	 vim /etc/shadowsocks.json
+	 {
      "server":"172.31.40.237",
      "server_port":58388,
      "local_port":1080,
      "password":"",
      "timeout":600,
      "method":"aes-256-cfb"
-}
+	}
+           
+
 #
 sudo ssserver -d stop
 #
